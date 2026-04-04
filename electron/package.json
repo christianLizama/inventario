@@ -1,0 +1,26 @@
+{
+  "name": "inventario",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^41.1.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.inventario.app",
+    "productName": "Inventario",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

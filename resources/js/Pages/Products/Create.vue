@@ -5,11 +5,12 @@ import { computed } from 'vue';
 
 const props = defineProps({
     suppliers: Array,
+    defaultSupplierId: [String, Number],
 });
 
 const form = useForm({
     name: '',
-    supplier_id: '',
+    supplier_id: props.defaultSupplierId || '',
     purchase_price: '',
     sale_price: '',
 });

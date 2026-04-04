@@ -67,6 +67,7 @@ function marginPercent(product) {
                             <th class="px-6 py-4 text-right font-medium">Venta</th>
                             <th class="px-6 py-4 text-right font-medium">Margen $</th>
                             <th class="px-6 py-4 text-right font-medium">Margen %</th>
+                            <th class="px-6 py-4 text-right font-medium">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-800">
@@ -89,6 +90,24 @@ function marginPercent(product) {
                                 >
                                     {{ marginPercent(product) }}%
                                 </span>
+                            </td>
+                            <td class="px-6 py-4 text-right space-x-3 text-sm">
+                                <Link
+                                    :href="route('products.edit', product.id)"
+                                    class="text-amber-400 hover:text-amber-300 font-medium transition-colors"
+                                >
+                                    Editar
+                               </Link>
+                                <Link
+                                    :href="route('products.destroy', product.id)"
+                                    method="delete"
+                                    as="button"
+                                    type="button"
+                                    class="text-red-400 hover:text-red-300 font-medium transition-colors focus:outline-none"
+                                    @click="(e) => { if(!window.confirm('¿Seguro quieres eliminar este producto?')) e.preventDefault(); }"
+                                >
+                                    Eliminar
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

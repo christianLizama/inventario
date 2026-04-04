@@ -48,6 +48,7 @@ defineProps({
                             <th class="px-6 py-4 text-left font-medium">Teléfono</th>
                             <th class="px-6 py-4 text-left font-medium">Email</th>
                             <th class="px-6 py-4 text-center font-medium">Productos</th>
+                            <th class="px-6 py-4 text-right font-medium">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-800">
@@ -63,6 +64,14 @@ defineProps({
                                 <span class="inline-block px-2.5 py-0.5 bg-cyan-900/50 text-cyan-400 text-xs font-semibold rounded-full">
                                     {{ supplier.products_count }}
                                 </span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <Link
+                                    :href="route('suppliers.show', supplier.id)"
+                                    class="text-cyan-400 hover:text-cyan-300 text-sm font-medium"
+                                >
+                                    Ver Detalles &rarr;
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

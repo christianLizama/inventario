@@ -46,4 +46,18 @@ class SupplierController extends Controller
         return redirect()->route('suppliers.index')
             ->with('success', 'Proveedor creado correctamente.');
     }
+
+    /**
+     * Muestra la información de un proveedor y sus productos.
+     */
+    public function show(Supplier $supplier)
+    {
+        $supplier->load(['products' => function ($query) {
+            $query->orderBy('name');
+        }]);
+
+        return Inertia::render('Suppliers/Show', [
+            'supplier' => $supplier,
+        ]);
+    }
 }
